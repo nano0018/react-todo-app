@@ -14,6 +14,7 @@ function useLocalStorage(itemName, initialValue = []) {
 			try {
 				let itemStored = localStorage.getItem(itemName);
 				let parsedItem;
+        console.log(itemStored);
 
 				if (JSON.parse(itemStored).length === 0 || itemStored === null) {
 					localStorage.setItem(
@@ -27,8 +28,7 @@ function useLocalStorage(itemName, initialValue = []) {
 				}
 
 				setLoading(false);
-			} catch (error) {
-        console.log(error);
+			} catch (error) {        
 				setLoading(false);
 				setError(error);
 			}
