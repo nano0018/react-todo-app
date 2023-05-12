@@ -12,11 +12,11 @@ function useLocalStorage(itemName, initialValue = []) {
 	useEffect(() => {
 		setTimeout(() => {
 			try {
-				let itemStored = localStorage.getItem(itemName);
+				let itemStored = (localStorage.getItem(itemName) === null ? "[]" : localStorage.getItem(itemName));
 				let parsedItem;
         console.log(itemStored);
 
-				if (JSON.parse(itemStored).length === 0 || itemStored === null) {
+				if (JSON.parse(itemStored).length === 0) {
 					localStorage.setItem(
 						itemName,
 						JSON.stringify(initialValue)
